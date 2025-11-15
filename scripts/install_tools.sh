@@ -1,6 +1,9 @@
 #!/bin/bash
 
 _install_tools() {
+  PATH="$HOME/.local/bin:$PATH"
+  PATH="$HOME/.cargo/bin:$PATH"
+
   if ! command -v "just" &> /dev/null; then
     print_info "Installing just..."
     curl --proto '=https' --tlsv1.2 -sSf https://just.systems/install.sh | bash -s -- --to $HOME/.local/bin
