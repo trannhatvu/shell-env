@@ -7,7 +7,8 @@ else
 fi
 
 for file in "$SHENV_DIR/scripts/"*.sh; do
-   [[ -f $file ]] && source "$file"
+  # shellcheck disable=SC1090
+  [[ -f $file ]] && source "$file"
 done
 
 _install_tools
