@@ -1,12 +1,12 @@
 #!/bin/bash
 
-if [ -n $ZSH_VERSION ]; then
-  SHELL_ENV_DIR="${0:A:h}"
+if [[ -n $ZSH_VERSION ]]; then
+  SHENV_DIR="${0:A:h}"
 else
-  SHELL_ENV_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+  SHENV_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 fi
 
-for file in "$SHELL_ENV_DIR/scripts/"*.sh; do
+for file in "$SHENV_DIR/scripts/"*.sh; do
    [[ -f $file ]] && source "$file"
 done
 
