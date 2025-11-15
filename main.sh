@@ -10,4 +10,6 @@ for file in "$SHENV_DIR/scripts/"*.sh; do
    [[ -f $file ]] && source "$file"
 done
 
+_install_tools
+
 print_info "Shell Env loaded"
